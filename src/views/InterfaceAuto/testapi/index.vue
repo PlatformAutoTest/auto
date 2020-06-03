@@ -201,16 +201,16 @@
     private verifierOptions = ['是', '否']
     private requestMethod = [
       {
-        value: '选项1',
+        value: 'GET',
         label: 'GET'
       }, {
-        value: '选项2',
+        value: 'POST',
         label: 'POST'
       }, {
-        value: '选项3',
+        value: 'PUT',
         label: 'PUT'
       }, {
-        value: '选项4',
+        value: 'DELETE',
         label: 'DELETE'
       }, {
         value: '选项5',
