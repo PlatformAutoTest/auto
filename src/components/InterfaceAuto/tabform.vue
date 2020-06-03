@@ -1,6 +1,6 @@
 <template>
   <el-table :data="listDate" height="250" border style="width: 100%">
-    <el-table-column :label="textLabelkey" width="180">
+    <el-table-column :label="textLabelKey" width="180">
       <template slot-scope="{row}">
         <el-input v-model="row.param_key" placeholder="key" @input="handleAddLine"></el-input>
       </template>
@@ -25,8 +25,8 @@
     @Prop()
     listDate!: any
 
-    private textLabelkey!: string
-    private textLabelValue!: string
+    private textLabelKey:string ='Expect'
+    private textLabelValue:string ='Actually'
 
     create() {
       this.getlableText()
@@ -34,10 +34,10 @@
 
     private getlableText() {
       if (this.code === 1004) {
-        this.textLabelkey = 'Expect'
+        this.textLabelKey = 'Expect'
         this.textLabelValue = 'Actually'
       } else {
-        this.textLabelkey = 'Key'
+        this.textLabelKey = 'Key'
         this.textLabelValue = 'Value'
       }
     }

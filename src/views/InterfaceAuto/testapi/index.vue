@@ -151,13 +151,13 @@
             <tabform :listDate="paramsData" @sendValue="getchild" :code="1001"></tabform>
           </el-tab-pane>
           <el-tab-pane label="Headers" name="second">
-            <tabform :listDate="headerData" :code="1002"></tabform>
+            <tabform :listDate="headerData" @sendValue="getchild" :code="1002"></tabform>
           </el-tab-pane>
           <el-tab-pane label="Body" name="third">
-            <tabform :listDate="bodyData" :code="1003"></tabform>
+            <tabform :listDate="bodyData" @sendValue="getchild" :code="1003"></tabform>
           </el-tab-pane>
           <el-tab-pane label="Validate" name="fourth">
-            <tabform :listDate="validate" :code="1004"></tabform>
+            <tabform :listDate="validate" @sendValue="getchild" :code="1004"></tabform>
           </el-tab-pane>
         </el-tabs>
       </el-form>
@@ -181,7 +181,6 @@
   import tabform from "@/components/InterfaceAuto/tabform.vue";
   import {IApiData} from "@/api/InterfaceAuto/types";
   import {cloneDeep} from 'lodash'
-  import ca from "element-ui/src/locale/lang/ca";
 
   @Component({
     name: 'testApi',
@@ -316,67 +315,75 @@
             param_key: textHeader,
             param_value: headerData[textHeader]
           })
-        } else {
-          this.headerData.push({
-            param_key: undefined,
-            param_value: undefined
-          });
         }
       }
+      this.headerData.push({
+        param_key: undefined,
+        param_value: undefined
+      });
+
       for (const textHeader in bodyData) {
         if (bodyData.hasOwnProperty(textHeader)) {
           this.bodyData.push({
             param_key: textHeader,
             param_value: bodyData[textHeader]
           })
-        } else {
-          this.bodyData.push({
-            param_key: undefined,
-            param_value: undefined
-          });
         }
       }
+      this.bodyData.push({
+        param_key: undefined,
+        param_value: undefined
+      });
+
       for (const textHeader in paramData) {
         if (paramData.hasOwnProperty(textHeader)) {
           this.paramsData.push({
             param_key: textHeader,
             param_value: paramData[textHeader]
           })
-        } else {
-          this.paramsData.push({
-            param_key: undefined,
-            param_value: undefined
-          });
         }
       }
+      this.paramsData.push({
+        param_key: undefined,
+        param_value: undefined
+      });
+
       for (const textHeader in validateData) {
         if (validateData.hasOwnProperty(textHeader)) {
           this.validate.push({
             param_key: textHeader,
             param_value: validateData[textHeader]
           })
-        } else {
-          this.validate.push({
-            param_key: undefined,
-            param_value: undefined
-          });
         }
       }
+      this.validate.push({
+        param_key: undefined,
+        param_value: undefined
+      });
+
     }
 
-    private getchild(getvalue: any,getCode:number) {
+    private getchild(getvalue: any, getCode: number) {
+      let key = getvalue[getvalue.length - 1].param_key
+      let value = getvalue[getvalue.length - 1].param_value
+      if (key !== undefined || value !== undefined) {
+        getvalue.push({
+          param_key: undefined,
+          param_value: undefined
+        });
+      }
       switch (getCode) {
         case 1001:
-          this.paramsData=getvalue;
+          this.paramsData = getvalue;
           break;
         case 1002:
-          this.headerData=getvalue;
+          this.headerData = getvalue;
           break;
         case 1003:
-          this.bodyData=getvalue;
+          this.bodyData = getvalue;
           break;
         case 1004:
-          this.validate=getvalue;
+          this.validate = getvalue;
           break;
       }
     }
