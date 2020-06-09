@@ -6,7 +6,6 @@ import { cloneDeep } from 'lodash';
 let default_1 = class extends Vue {
     constructor() {
         super(...arguments);
-        // private list: IArticleData[] = []
         this.formLabelWidth = '120px';
         this.activeName = 'first';
         this.listLoading = true;
@@ -19,16 +18,16 @@ let default_1 = class extends Vue {
         this.verifierOptions = ['是', '否'];
         this.requestMethod = [
             {
-                value: '选项1',
+                value: 'GET',
                 label: 'GET'
             }, {
-                value: '选项2',
+                value: 'POST',
                 label: 'POST'
             }, {
-                value: '选项3',
+                value: 'PUT',
                 label: 'PUT'
             }, {
-                value: '选项4',
+                value: 'DELETE',
                 label: 'DELETE'
             }, {
                 value: '选项5',
@@ -122,13 +121,11 @@ let default_1 = class extends Vue {
                     param_value: headerData[textHeader]
                 });
             }
-            else {
-                this.headerData.push({
-                    param_key: undefined,
-                    param_value: undefined
-                });
-            }
         }
+        this.headerData.push({
+            param_key: undefined,
+            param_value: undefined
+        });
         for (const textHeader in bodyData) {
             if (bodyData.hasOwnProperty(textHeader)) {
                 this.bodyData.push({
@@ -136,13 +133,11 @@ let default_1 = class extends Vue {
                     param_value: bodyData[textHeader]
                 });
             }
-            else {
-                this.bodyData.push({
-                    param_key: undefined,
-                    param_value: undefined
-                });
-            }
         }
+        this.bodyData.push({
+            param_key: undefined,
+            param_value: undefined
+        });
         for (const textHeader in paramData) {
             if (paramData.hasOwnProperty(textHeader)) {
                 this.paramsData.push({
@@ -150,13 +145,11 @@ let default_1 = class extends Vue {
                     param_value: paramData[textHeader]
                 });
             }
-            else {
-                this.paramsData.push({
-                    param_key: undefined,
-                    param_value: undefined
-                });
-            }
         }
+        this.paramsData.push({
+            param_key: undefined,
+            param_value: undefined
+        });
         for (const textHeader in validateData) {
             if (validateData.hasOwnProperty(textHeader)) {
                 this.validate.push({
@@ -164,15 +157,21 @@ let default_1 = class extends Vue {
                     param_value: validateData[textHeader]
                 });
             }
-            else {
-                this.validate.push({
-                    param_key: undefined,
-                    param_value: undefined
-                });
-            }
         }
+        this.validate.push({
+            param_key: undefined,
+            param_value: undefined
+        });
     }
     getchild(getvalue, getCode) {
+        let key = getvalue[getvalue.length - 1].param_key;
+        let value = getvalue[getvalue.length - 1].param_value;
+        if (key !== undefined || value !== undefined) {
+            getvalue.push({
+                param_key: undefined,
+                param_value: undefined
+            });
+        }
         switch (getCode) {
             case 1001:
                 this.paramsData = getvalue;

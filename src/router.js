@@ -162,11 +162,13 @@ export default new Router({
         {
             path: '/interface',
             component: Layout,
+            redirect: '/interface/case',
             meta: {
                 title: 'InterfaceAuto',
                 icon: 'example'
             },
-            children: [{
+            children: [
+                {
                     path: 'api',
                     component: () => import('@/views/InterfaceAuto/testapi/index.vue'),
                     meta: {
@@ -176,15 +178,15 @@ export default new Router({
                 },
                 {
                     path: 'case',
-                    component: () => import('@/views/InterfaceAuto/testapi/index.vue'),
+                    component: () => import('@/views/InterfaceAuto/testcase/index.vue'),
                     meta: {
                         title: 'TestCase',
-                        icon: 'table'
+                        icon: 'tree'
                     }
                 },
                 {
                     path: 'suite',
-                    component: () => import('@/views/InterfaceAuto/testapi/index.vue'),
+                    component: () => import('@/views/InterfaceAuto/testsuite/index.vue'),
                     meta: {
                         title: 'TestSuite',
                         icon: 'table'

@@ -10,3 +10,10 @@ export interface IApiData{
   lastUpdateM:string;
   verified:boolean;
 }
+export interface IJsonFormatData {
+  level:number;
+  type:string;
+  key:string;
+  value:any;
+  children:any;
+}

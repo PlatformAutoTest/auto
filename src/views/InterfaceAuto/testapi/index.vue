@@ -3,7 +3,7 @@
     <div class="filter-container">
       <el-input
         v-model="listQuery.api_name"
-        placeholder="接口名"
+        placeholder="接口名1111"
         style="width: 200px;"
         class="filter-item"
         @keyup.enter.native="handleFilter"
@@ -188,7 +188,6 @@
 
   })
   export default class extends Vue {
-    // private list: IArticleData[] = []
     private formLabelWidth = '120px'
     private activeName = 'first'
     private listLoading = true

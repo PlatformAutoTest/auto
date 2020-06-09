@@ -1,1 +1,1 @@
-{"version":3,"file":"SidebarItemLink.vue.js","sourceRoot":"","sources":["SidebarItemLink.vue"],"names":[],"mappings":""}
+{"version":3,"file":"SidebarItemLink.vue.js","sourceRoot":"","sources":["SidebarItemLink.vue"],"names":[],"mappings":";AAkBA,OAAO,EAAE,SAAS,EAAE,IAAI,EAAE,GAAG,EAAE,MAAM,wBAAwB,CAAA;AAC7D,OAAO,EAAE,UAAU,EAAE,MAAM,kBAAkB,CAAA;AAK7C,gBAAA,eAAqB,SAAQ,GAAG;IAAhC;;QAGU,eAAU,GAAG,UAAU,CAAA;IACjC,CAAC;CAAA,CAAA;AAH2B;IAAzB,IAAI,CAAC,EAAE,QAAQ,EAAE,IAAI,EAAE,CAAC;qCAAoB;AAD/C;IAHC,SAAS,CAAC;QACT,IAAI,EAAE,iBAAiB;KACxB,CAAC;aAKD"}
